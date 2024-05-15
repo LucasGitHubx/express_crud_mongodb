@@ -4,7 +4,6 @@ const Posts = require("./models/Post");
 async function get(res) {
   try {
     const posts = await Posts.find();
-    console.log(posts);
     res.status(200).json({ posts });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -49,7 +48,6 @@ async function put(res, id, document) {
 async function remove(res, id) {
   try {
     const post = await Posts.findOne({ _id: id });
-    console.log(post);
 
     if (post === null) {
       return res.status(404).json({ message: "The id you gave doesn't exist" });
