@@ -4,8 +4,12 @@ const cors = require("cors");
 const { get, getOne, post, put, remove } = require("./db/methods");
 
 const app = express();
+const corsOptions = {
+  origin: "https://lucasgithubx.github.io/express_crud_mongodb.com",
+};
+
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 connect();
 
 app.get("/posts", (req, res) => {
